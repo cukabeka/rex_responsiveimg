@@ -1,6 +1,7 @@
 <?php
 
 function ep_include_responsiveimg($params) {
+	global $REX;
 	
 	$out = $params['subject'];
 	
