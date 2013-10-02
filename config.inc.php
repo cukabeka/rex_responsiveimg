@@ -14,9 +14,10 @@ require_once ($REX['INCLUDE_PATH'].'/addons/responsiveimg/functions/functions.ep
 if(!$REX['REDAXO']) {
 	rex_register_extension('OUTPUT_FILTER', 'ep_include_responsiveimg');
 	rex_register_extension('OUTPUT_FILTER', 'ep_replace_responsiveimg');
-	if(rex_get('responsiveimg_js', 'string', '')=='true') {
-		rex_register_extension('OUTPUT_FILTER', 'ep_generate_responsiveimg_js');
-	}
+}
+else {
+	rex_register_extension('REX_FORM_SAVED', 'ep_generate_responsiveimg_js');
+	rex_register_extension('REX_FORM_DELETED', 'ep_generate_responsiveimg_js');
 }
 
 
