@@ -23,21 +23,18 @@ function ep_generate_responsiveimg_js($params) {
 		}
 		$breakpoints[] = 1;
 		$jscode = '
-var lastMinSize = 0
-var MinSize = 0
 var bp = Array('.implode(',', $breakpoints).')
 $.fn.respimg = function() {
 	var ww = $(window).width();
 	img = $(this)
 	$(bp).each(function(key, val) {
 		if(ww > val) {
-			MinSize=val
 		    	img.each(function() {
-		    		MinSizeSrc = $(this).attr("data-min"+MinSize);
+		    		MinSizeSrc = $(this).attr("data-min"+val);
 		    		dataActive = $(this).attr("data-active");
-		    		if(MinSizeSrc && (dataActive>ww || dataActive < MinSize)) {
+		    		if(MinSizeSrc && (dataActive>ww || dataActive < val)) {
 		    			$(this).attr("src", MinSizeSrc);
-		    			$(this).attr("data-active", MinSize);
+		    			$(this).attr("data-active", val);
 		    		}	    		
 		    	});
 		}
