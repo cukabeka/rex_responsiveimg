@@ -70,11 +70,11 @@ function ep_replace_responsiveimg($params) {
 	    }
 	}
 	foreach ($tmp_array as $m1 => $breakpoints) {
-		$alternate_src = 'class="responsiveimg" src="index.php?rex_img_type='.$m1.'&rex_img_file=\1" data-min1="index.php?rex_img_type='.$m1.'&rex_img_file=\1" data-active="9999"';
+		$alternate_src = 'class="responsiveimg" src="index.php?rex_img_type='.$m1.'&rex_img_file=\2" data-min1="index.php?rex_img_type='.$m1.'&rex_img_file=\2" data-active="9999"';
 		foreach ($breakpoints as $minwidth => $responsive) {
-			$alternate_src .= 'data-min'.$minwidth.'="index.php?rex_img_type='.$responsive.'&rex_img_file=\1" ';
+			$alternate_src .= 'data-min'.$minwidth.'="index.php?rex_img_type='.$responsive.'&rex_img_file=\2" ';
 		}
-		$out = preg_replace('#src="index.php\?rex_img_type='.$m1.'&amp;rex_img_file=(.*?)"#', $alternate_src, $out);
+		$out = preg_replace('#src="index.php\?rex_img_type='.$m1.'&(amp;)?rex_img_file=(.*?)"#', $alternate_src, $out);
 	}
 	return $out;
 }
