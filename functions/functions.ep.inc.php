@@ -32,7 +32,6 @@ $.fn.respimg = function() {
 	$(bp).each(function(key, val) {
 		if(ww > val) {
 			MinSize=val
-			console.log(MinSize);
 		    	img.each(function() {
 		    		MinSizeSrc = $(this).attr("data-min"+MinSize);
 		    		dataActive = $(this).attr("data-active");
