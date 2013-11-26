@@ -42,11 +42,14 @@ $.fn.respimg = function() {
 };
 $(document).ready(function() {
 	$(".responsiveimg").respimg();
-	interval = setInterval(function() {
-		$(window).resize(function(){
-			$(".responsiveimg").respimg();
-		})}
-	, 500);
+	    
+    $(window).resize(function() {
+        clearTimeout($.data(this, "resizeTimer"));
+        
+        $.data(this, "resizeTimer", setTimeout(function() {
+            $(".responsiveimg").respimg();
+        }, 100));
+    });
 });';
 		$jsfile = $REX['HTDOCS_PATH'].'files/addons/responsiveimg/js.js';
 		file_put_contents($jsfile, $jscode);		
